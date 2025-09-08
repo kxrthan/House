@@ -19,7 +19,8 @@ const Home = () => {
 
   const scrollGallery = (direction) => {
     if (galleryRef.current) {
-      const scrollAmount = 400; // Adjust scroll distance
+      const isMobile = window.innerWidth <= 768;
+      const scrollAmount = isMobile ? 296 : 400; // 280px image + 16px gap
       const currentScroll = galleryRef.current.scrollLeft;
       const newScroll = direction === 'left' 
         ? currentScroll - scrollAmount 
@@ -30,7 +31,6 @@ const Home = () => {
         behavior: 'smooth'
       });
       
-      // Update scroll position after animation
       setTimeout(() => {
         updateScrollButtons();
       }, 300);
@@ -150,16 +150,20 @@ const Home = () => {
         </div>
       </div>
 
+
+      
       {/* Horizontal Scrollable Gallery - Center of screen */}
       <div className="relative mt-32">
         <div 
           ref={galleryRef}
           className="flex overflow-x-auto scrollbar-hide py-8"
-          style={{ gap: window.innerWidth <= 768 ? '16px' : '32px', padding: window.innerWidth <= 768 ? '0 16px' : '0 16px' }}
           style={{
+            gap: window.innerWidth <= 768 ? '16px' : '32px',
+            padding: window.innerWidth <= 768 ? '0 calc(50vw - 148px)' : '0 16px',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
-            WebkitScrollbar: { display: 'none' }
+            WebkitScrollbar: { display: 'none' },
+            scrollSnapType: window.innerWidth <= 768 ? 'x mandatory' : 'none'
           }}
           onScroll={updateScrollButtons}
         >
@@ -167,7 +171,11 @@ const Home = () => {
             <div 
               key={index}
               className="flex-shrink-0 group cursor-pointer"
-              style={{ minWidth: window.innerWidth <= 768 ? '280px' : '400px', maxWidth: window.innerWidth <= 768 ? '280px' : '400px' }}
+              style={{ 
+                minWidth: window.innerWidth <= 768 ? '280px' : '400px', 
+                maxWidth: window.innerWidth <= 768 ? '280px' : '400px',
+                scrollSnapAlign: window.innerWidth <= 768 ? 'center' : 'none'
+              }}
             >
               <div className="relative overflow-hidden rounded-xl shadow-2xl transition-transform duration-300 group-hover:scale-105">
                 <img 
