@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6ea3ea81.css",
+    "main.js": "/static/js/main.b31646ba.js",
+    "static/media/main.png": "/static/media/main.7caef3d6f71d483ff8b1.png",
+    "static/media/residency3.jpeg": "/static/media/residency3.5b043f3aa51f69db022f.jpeg",
+    "static/media/residency1.jpeg": "/static/media/residency1.92fd02efba84568947be.jpeg",
+    "static/media/Residency2.jpeg": "/static/media/Residency2.39b8f3d2d13a753c9d1c.jpeg",
+    "static/media/logo.png": "/static/media/logo.ae5b744b953812578b9e.png",
+    "index.html": "/index.html",
+    "main.6ea3ea81.css.map": "/static/css/main.6ea3ea81.css.map",
+    "main.b31646ba.js.map": "/static/js/main.b31646ba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ea3ea81.css",
+    "static/js/main.b31646ba.js"
+  ]
+}
